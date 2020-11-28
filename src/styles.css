@@ -141,6 +141,9 @@ a {
     line-height: 1;
     list-style:none;
 }
+.gitHubLink{
+    margin-left: 40%;
+}
 div{
     display:block;
 }
