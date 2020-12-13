@@ -65,6 +65,8 @@ function getCurrentLocation(event){
 //
 
 function convertFahrenheit(response) {
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
   let celsius = Math.round(response.data.main.temp);
   document.querySelector("#temperature").innerHTML = Math.round((celsius * 9) / 5 + 32);
 }
@@ -77,10 +79,12 @@ function displayFahrenheit(event) {
   console.log(apiUrl);
   axios.get(apiUrl).then(convertFahrenheit);
 }
-let f = document.querySelector("#fahrenheit-link");
-f.addEventListener("click", displayFahrenheit);
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheit);
 
 function convertCelsius(response) {
+fahrenheitLink.classList.remove("active");
+celsiusLink.classList.add("active");
   document.querySelector("#temperature").innerHTML = Math.round(response.data.main.temp);
 }
 
@@ -94,8 +98,8 @@ function displayCelsius(event) {
 
 }
 
-let c = document.querySelector("#celsius-link");
-c.addEventListener("click", displayCelsius);
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsius);
 
 
 
