@@ -44,7 +44,6 @@ console.log(apiUrl);
 }
 
 function handleSubmit(event){
-  
   event.preventDefault();
   let city = document.querySelector("#city-input").value;
   searchCity(city);
@@ -70,7 +69,8 @@ function convertFahrenheit(response) {
   document.querySelector("#temperature").innerHTML = Math.round((celsius * 9) / 5 + 32);
 }
 
-function displayFahrenheit() {
+function displayFahrenheit(event) {
+  event.preventDefault();
   let cityName = document.querySelector("#city").innerHTML;
   let apiKey ="0e6a69651885d99335f23f200403f8a4";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
@@ -84,7 +84,8 @@ function convertCelsius(response) {
   document.querySelector("#temperature").innerHTML = Math.round(response.data.main.temp);
 }
 
-function displayCelsius() {
+function displayCelsius(event) {
+  event.preventDefault();
   let cityName = document.querySelector("#city").innerHTML;
   let apiKey ="0e6a69651885d99335f23f200403f8a4";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
