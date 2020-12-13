@@ -138,18 +138,4 @@ let dateElement = document.querySelector("#date");
 let currentTime = new Date();
 dateElement.innerHTML = formatDate(currentTime);
 
-//function showTemp(cityInput){
-  //let showTemp = document.querySelector("#city-input");
-  
 
-//  let h1 = document.querySelector(".city");
-//h1.innerHTML = `${cityInput.value}`;
-//let temperature = Math.round(response.data.main.temp);
-//let span = document.querySelector("span.temperature#temperature");
-//span.innerHTML= temperature;
-
-//let currentDay = day[daysIndex];
-//let clock = document.querySelector("span.clock#displayTime");
-//clock.innerHTML = ` ${currentDay} ${hours} : ${minutes}`;
-// or // return `${day} ${hours}:${minutes}`;
-//console.log(clock);
