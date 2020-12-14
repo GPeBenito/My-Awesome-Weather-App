@@ -72,10 +72,12 @@ function handleSubmit(event){
 
 function searchLocation(position) {
   let apiKey ="0e6a69651885d99335f23f200403f8a4";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}`;
-  
-  console.log(apiUrl);
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+
   axios.get(apiUrl).then(displayWeatherCondition);
+
+  let geoForecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+axios.get(geoForecastUrl).then(displayForecast);
 }
 
 function getCurrentLocation(event){
@@ -83,7 +85,6 @@ function getCurrentLocation(event){
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
-//
 
 function convertFahrenheit(response) {
   celsiusLink.classList.remove("active");
@@ -123,9 +124,6 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsius);
 
 
-
-
-//
 let currentLocationButton=document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
